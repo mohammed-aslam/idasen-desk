@@ -115,10 +115,9 @@ public class Notifications : INotifications
                      try
                      {
                          await _manager.LoadAsync(token).ConfigureAwait(false);
-
-                         Show($"Idasen System Tray {_version.GetVersion()}",
-                              "Running...",
-                              InfoBarSeverity.Informational);
+                         // No startup notification is shown here to avoid excessive notifications
+                         // during app initialization. The first user-facing notification is
+                         // shown when the desk connection succeeds or a startup error occurs.
                      }
                      catch (OperationCanceledException ex)
                      {
@@ -129,6 +128,9 @@ public class Notifications : INotifications
                      {
                          _logger.Error(ex,
                                        "Failed to initialize notifications");
+                         Show("Idasen System Tray",
+                              $"Startup failed: {ex.Message}",
+                              InfoBarSeverity.Error);
                      }
                  },
                  token);

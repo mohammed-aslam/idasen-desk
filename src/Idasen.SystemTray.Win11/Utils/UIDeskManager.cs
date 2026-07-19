@@ -309,10 +309,6 @@ public sealed class UiDeskManager : IUiDeskManager
             await Task.Delay ( 3000 ,
                                _token ).ConfigureAwait ( false ) ;
 
-            _notificationManager.ShowNotification ( "Auto Connect" ,
-                                                    "Trying to auto connect to Idasen Desk..." ,
-                                                    InfoBarSeverity.Informational ) ;
-
             await _deskConnectionManager.ConnectAsync ( _token ).ConfigureAwait ( false ) ;
         }
         catch ( TaskCanceledException e )
