@@ -5,6 +5,7 @@ using System.Threading.Tasks ;
 using Idasen.SystemTray.Win11.Interfaces ;
 using Serilog ;
 using Microsoft.Toolkit.Uwp.Notifications ;
+using Windows.UI.Notifications ;
 
 namespace Idasen.SystemTray.Win11.Utils ;
 
@@ -235,6 +236,45 @@ public class SitStandReminderManager : ISitStandReminderManager
                        {
                            toast.Tag   = ReminderTag ;
                            toast.Group = ReminderGroup ;
+
+                           // When the toast is dismissed by the user (e.g. clicking the X or clearing the notification),
+                           // stop any auto-snooze/scheduling so no further reminders are scheduled until the next state change or settings save.
+                           toast.Dismissed += ( sender , args ) =>
+                           {
+                               try
+                               {
+                                   // Only act on user-initiated dismissals
+                                   if ( args.Reason == ToastDismissalReason.UserCanceled )
+                                   {
+                                       lock ( _lock )
+                                       {
+                                           _isSnoozed      = false ;
+                                           _secondsRemaining = 0u ;
+                                           _logger.Information ( "Reminder dismissed by user; stopping snooze/scheduling." ) ;
+                                       }
+                                   }
+                               }
+                               catch ( Exception ex )
+                               {
+                                   _logger.Error ( ex , "Error handling toast dismissal" ) ;
+                               }
+                           } ;
+
+                           // Auto-snooze: when showing the reminder, schedule a snooze interval so ignored notifications reappear after SnoozeIntervalMinutes.
+                           try
+                           {
+                               lock ( _lock )
+                               {
+                                   _isSnoozed = true ;
+                                   ResetTimerForCurrentState ( ) ;
+                                   _logger.Information ( "Reminder auto-snoozed for {Minutes} minutes" ,
+                                                         settings.SnoozeIntervalMinutes ) ;
+                               }
+                           }
+                           catch ( Exception ex )
+                           {
+                               _logger.Error ( ex , "Failed to schedule auto-snooze for reminder" ) ;
+                           }
                        } ) ;
         }
         catch ( Exception ex )
