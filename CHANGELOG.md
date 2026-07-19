@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/tschroedter/idasen-desk/compare/v0.1.495...HEAD)
 
+### 🚀 Features
+
+- **Sit/Stand Scheduled Reminders**
+  - Added configurable sit/stand interval reminders to help maintain healthy posture habits
+  - Interactive Windows toast notifications appear when sitting or standing intervals expire, with **Stand/Sit** and **Snooze** action buttons
+  - Clicking **Stand** or **Sit** on the notification automatically moves the desk to the corresponding position and resets the timer
+  - **Snooze** dismisses the notification and re-notifies after the configured snooze duration
+  - Manually moving the desk to the sitting or standing height is auto-detected (±5 cm tolerance) — the timer resets automatically without showing a notification
+  - All intervals are fully configurable in Settings → Sit/Stand Reminders:
+    - Sitting Time (minutes)
+    - Standing Time (minutes)
+    - Snooze Time (minutes)
+    - Enable / disable toggle
+  - Default values: 40 min sitting, 15 min standing, 5 min snooze
+
+### ✅ Tests
+
+- Added `SitStandReminderManagerTests` for the new reminder manager
+- Updated `SettingsSynchronizerTests` to cover new reminder settings properties
+
+
 ## [0.1.78](https://github.com/tschroedter/idasen-desk/releases/tag/V0.1.78) - 2024-10-07
 
 ### Added

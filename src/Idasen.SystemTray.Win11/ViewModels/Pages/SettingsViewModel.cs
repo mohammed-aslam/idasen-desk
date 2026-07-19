@@ -89,6 +89,10 @@ public partial class SettingsViewModel : ObservableObject , INavigationAware , I
         StandingIsVisibleInContextMenu = true ;
         StopIsVisibleInContextMenu     = true ;
         GlobalHotkeysEnabled           = AppConfiguration.Defaults.GlobalHotkeysEnabled ;
+        RemindersEnabled               = AppConfiguration.Reminders.RemindersEnabled ;
+        SittingIntervalMinutes         = AppConfiguration.Reminders.SittingIntervalMinutes ;
+        StandingIntervalMinutes        = AppConfiguration.Reminders.StandingIntervalMinutes ;
+        SnoozeIntervalMinutes          = AppConfiguration.Reminders.SnoozeIntervalMinutes ;
         StandingName                   = AppConfiguration.Hotkeys.StandingName ;
         StandingKey                    = AppConfiguration.Hotkeys.StandingKey ;
         StandingModifiers              = AppConfiguration.Hotkeys.DefaultModifiers ;
@@ -264,6 +268,14 @@ public partial class SettingsViewModel : ObservableObject , INavigationAware , I
     [ ObservableProperty ] public partial bool Notifications { get ; set ; }
 
     [ ObservableProperty ] public partial bool ParentalLock { get ; set ; }
+
+    [ ObservableProperty ] public partial bool RemindersEnabled { get ; set ; }
+
+    [ ObservableProperty ] public partial uint SittingIntervalMinutes { get ; set ; }
+
+    [ ObservableProperty ] public partial uint StandingIntervalMinutes { get ; set ; }
+
+    [ ObservableProperty ] public partial uint SnoozeIntervalMinutes { get ; set ; }
 
     [ ObservableProperty ] public partial uint Seating { get ; set ; }
 

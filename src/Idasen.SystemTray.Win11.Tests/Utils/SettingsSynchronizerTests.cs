@@ -64,6 +64,11 @@ public class SettingsSynchronizerTests : IDisposable
         _converters.DeviceNameConverter.Returns ( _nameConverter ) ;
         _converters.DeviceAddressToULongConverter.Returns ( _addressConverter ) ;
 
+        _model.RemindersEnabled = AppConfiguration.Reminders.RemindersEnabled ;
+        _model.SittingIntervalMinutes = AppConfiguration.Reminders.SittingIntervalMinutes ;
+        _model.StandingIntervalMinutes = AppConfiguration.Reminders.StandingIntervalMinutes ;
+        _model.SnoozeIntervalMinutes = AppConfiguration.Reminders.SnoozeIntervalMinutes ;
+
         return new SettingsSynchronizer ( _logger ,
                                           _settingsManager ,
                                           _converters ,
@@ -127,6 +132,10 @@ public class SettingsSynchronizerTests : IDisposable
         _model.ParentalLock.Should ( ).BeTrue ( ) ;
         _model.Notifications.Should ( ).BeTrue ( ) ;
         _model.CurrentTheme.Should ( ).Be ( ApplicationTheme.Dark ) ;
+        _model.RemindersEnabled.Should ( ).BeFalse ( ) ;
+        _model.SittingIntervalMinutes.Should ( ).Be ( AppConfiguration.Reminders.SittingIntervalMinutes ) ;
+        _model.StandingIntervalMinutes.Should ( ).Be ( AppConfiguration.Reminders.StandingIntervalMinutes ) ;
+        _model.SnoozeIntervalMinutes.Should ( ).Be ( AppConfiguration.Reminders.SnoozeIntervalMinutes ) ;
     }
 
     [ Fact ]

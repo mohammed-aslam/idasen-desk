@@ -142,6 +142,16 @@ public class SettingsSynchronizer (
         model.MaxSpeedToStopMovement = current.DeviceSettings.MaxSpeedToStopMovement > 0
                                            ? current.DeviceSettings.MaxSpeedToStopMovement
                                            : StoppingHeightCalculatorSettings.MaxSpeedToStopMovement ;
+        model.RemindersEnabled = current.DeviceSettings.RemindersEnabled ;
+        model.SittingIntervalMinutes = current.DeviceSettings.SittingIntervalMinutes > 0
+                                           ? current.DeviceSettings.SittingIntervalMinutes
+                                           : AppConfiguration.Reminders.SittingIntervalMinutes ;
+        model.StandingIntervalMinutes = current.DeviceSettings.StandingIntervalMinutes > 0
+                                           ? current.DeviceSettings.StandingIntervalMinutes
+                                           : AppConfiguration.Reminders.StandingIntervalMinutes ;
+        model.SnoozeIntervalMinutes = current.DeviceSettings.SnoozeIntervalMinutes > 0
+                                           ? current.DeviceSettings.SnoozeIntervalMinutes
+                                           : AppConfiguration.Reminders.SnoozeIntervalMinutes ;
 
         model.GlobalHotkeysEnabled = current.HotkeySettings.GlobalHotkeysEnabled ;
 
@@ -285,6 +295,10 @@ public class SettingsSynchronizer (
         settings.DeviceSettings.DeviceLocked           = newDeviceLocked ;
         settings.DeviceSettings.NotificationsEnabled   = newNotificationsEnabled ;
         settings.DeviceSettings.MaxSpeedToStopMovement = model.MaxSpeedToStopMovement ;
+        settings.DeviceSettings.RemindersEnabled       = model.RemindersEnabled ;
+        settings.DeviceSettings.SittingIntervalMinutes = model.SittingIntervalMinutes ;
+        settings.DeviceSettings.StandingIntervalMinutes = model.StandingIntervalMinutes ;
+        settings.DeviceSettings.SnoozeIntervalMinutes  = model.SnoozeIntervalMinutes ;
 
         settings.HotkeySettings.GlobalHotkeysEnabled = model.GlobalHotkeysEnabled ;
         settings.HotkeySettings.StandingKey          = model.StandingKey ;
@@ -437,7 +451,13 @@ public class SettingsSynchronizer (
             current.HotkeySettings.Custom2Key           != model.Custom2Key           ||
             current.HotkeySettings.Custom2Modifiers     != model.Custom2Modifiers ;
 
-        return heightChanged || visibilityChanged || deviceChanged || themeChanged || hotkeyChanged ;
+        var reminderChanged =
+            current.DeviceSettings.RemindersEnabled         != model.RemindersEnabled ||
+            current.DeviceSettings.SittingIntervalMinutes   != model.SittingIntervalMinutes ||
+            current.DeviceSettings.StandingIntervalMinutes  != model.StandingIntervalMinutes ||
+            current.DeviceSettings.SnoozeIntervalMinutes    != model.SnoozeIntervalMinutes ;
+
+        return heightChanged || visibilityChanged || deviceChanged || themeChanged || hotkeyChanged || reminderChanged ;
     }
 
     private static ApplicationTheme ParseThemeName ( string themeName )

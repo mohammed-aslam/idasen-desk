@@ -26,6 +26,7 @@ using Idasen.SystemTray.Win11.Views.Windows ;
 using Microsoft.Extensions.Configuration ;
 using Microsoft.Extensions.DependencyInjection ;
 using Microsoft.Extensions.Hosting ;
+using Microsoft.Toolkit.Uwp.Notifications ;
 using Serilog ;
 using Wpf.Ui ;
 using Wpf.Ui.Abstractions ;
@@ -117,6 +118,9 @@ public partial class App
                                                                            services
                                                                               .AddSingleton < IToastService ,
                                                                                    ToastService > ( ) ;
+                                                                           services
+                                                                              .AddSingleton < ISitStandReminderManager ,
+                                                                                   SitStandReminderManager > ( ) ;
                                                                            services
                                                                               .AddSingleton < SettingsChanges > ( ) ;
                                                                            services
@@ -363,6 +367,18 @@ public partial class App
 
             await HandleStartingApplication ( ) ;
 
+            // Hook up toast notification activation actions
+            ToastNotificationManagerCompat.OnActivated += toastArgs =>
+            {
+                var actionArgs = ToastArguments.Parse ( toastArgs.Argument ) ;
+                if ( actionArgs.TryGetValue ( "action" ,
+                                               out var actionValue ) )
+                {
+                    var reminderManager = GetService < ISitStandReminderManager > ( ) ;
+                    reminderManager?.HandleNotificationAction ( actionValue ) ;
+                }
+            } ;
+
             await HandleInitializingApplication ( ) ;
 
             var versionProvider = GetVersionProvider ( ) ;
@@ -397,6 +413,9 @@ public partial class App
         var settings = GetService < SettingsViewModel > ( ) ;
 
         await settings!.InitializeAsync ( CancellationToken.None ) ;
+
+        var reminderManager = GetService < ISitStandReminderManager > ( ) ;
+        reminderManager?.Initialize ( ) ;
     }
 
     private async Task HandleStartingApplication ( )

@@ -1,4 +1,4 @@
-﻿using Wpf.Ui.Appearance ;
+using Wpf.Ui.Appearance ;
 
 namespace Idasen.SystemTray.Win11.Interfaces ;
 
@@ -35,4 +35,9 @@ public interface ISettingsViewModel : IDisposable
     string           Custom1Modifiers               { get ; set ; }
     string           Custom2Key                     { get ; set ; }
     string           Custom2Modifiers               { get ; set ; }
+    bool             RemindersEnabled               { get ; set ; }
+    uint             SittingIntervalMinutes         { get ; set ; }
+    uint             StandingIntervalMinutes        { get ; set ; }
+    uint             SnoozeIntervalMinutes          { get ; set ; }
 }
+

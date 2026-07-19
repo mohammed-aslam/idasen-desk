@@ -187,7 +187,34 @@ public static class AppConfiguration
         /// </summary>
         public const uint DeskHeightFactor = 100 ;
     }
+
+    /// <summary>
+    ///     Default configurations for reminders
+    /// </summary>
+    public static class Reminders
+    {
+        /// <summary>
+        ///     Default state for reminder notifications.
+        /// </summary>
+        public const bool RemindersEnabled = false ;
+
+        /// <summary>
+        ///     Default sitting interval in minutes.
+        /// </summary>
+        public const uint SittingIntervalMinutes = 40 ;
+
+        /// <summary>
+        ///     Default standing interval in minutes.
+        /// </summary>
+        public const uint StandingIntervalMinutes = 15 ;
+
+        /// <summary>
+        ///     Default snooze interval in minutes.
+        /// </summary>
+        public const uint SnoozeIntervalMinutes = 5 ;
+    }
 }
+
 
 // Legacy Constants class - marked obsolete for backward compatibility during migration
 #pragma warning disable CS0618 // Type or member is obsolete

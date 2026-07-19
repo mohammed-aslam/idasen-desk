@@ -275,6 +275,62 @@
                     </StackPanel>
                 </ui:CardExpander>
 
+                <!-- Sit/Stand Reminders -->
+                <ui:CardExpander CornerRadius="0,0,8,8" Header="Sit/Stand Reminders" IsExpanded="True">
+                    <StackPanel>
+                        <TextBlock Margin="0,12,0,0" Text="Reminder Settings" />
+                        <CheckBox Margin="0,12,0,0"
+                                  Content="Enable reminders"
+                                  ToolTip="Enable or disable periodic notifications reminding you to sit or stand."
+                                  IsChecked="{Binding ViewModel.RemindersEnabled, Mode=TwoWay}" />
+                        <TextBlock Margin="0,12,0,0" Text="Intervals" />
+                        <Grid Margin="0,12,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="5" />
+                                <RowDefinition />
+                                <RowDefinition Height="5" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <!-- Sitting Interval -->
+                            <controls:DeskPositionControl
+                                Grid.Row="0"
+                                Symbol="{x:Static ui:SymbolRegular.Clock24}"
+                                PositionName="Sitting Time"
+                                IsEditable="False"
+                                PositionValue="{Binding ViewModel.SittingIntervalMinutes, Mode=TwoWay}"
+                                Minimum="1"
+                                Maximum="120"
+                                Units="min"
+                                IsShowInTrayVisible="Collapsed" />
+                            
+                            <!-- Standing Interval -->
+                            <controls:DeskPositionControl
+                                Grid.Row="2"
+                                Symbol="{x:Static ui:SymbolRegular.Clock24}"
+                                PositionName="Standing Time"
+                                IsEditable="False"
+                                PositionValue="{Binding ViewModel.StandingIntervalMinutes, Mode=TwoWay}"
+                                Minimum="1"
+                                Maximum="120"
+                                Units="min"
+                                IsShowInTrayVisible="Collapsed" />
+
+                            <!-- Snooze Interval -->
+                            <controls:DeskPositionControl
+                                Grid.Row="4"
+                                Symbol="{x:Static ui:SymbolRegular.Snooze24}"
+                                PositionName="Snooze Time"
+                                IsEditable="False"
+                                PositionValue="{Binding ViewModel.SnoozeIntervalMinutes, Mode=TwoWay}"
+                                Minimum="1"
+                                Maximum="60"
+                                Units="min"
+                                IsShowInTrayVisible="Collapsed" />
+                        </Grid>
+                    </StackPanel>
+                </ui:CardExpander>
+
                 <!-- Hot Keys -->
                 <ui:CardExpander CornerRadius="0,0,8,8" Header="Hot Keys">
                     <StackPanel>

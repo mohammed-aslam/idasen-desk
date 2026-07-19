@@ -40,4 +40,25 @@ public class DeviceSettings
     ///     The estimated units required to stop from max. movement speed.
     /// </summary>
     public uint MaxSpeedToStopMovement { get ; set ; } = StoppingHeightCalculatorSettings.MaxSpeedToStopMovement ;
+
+    /// <summary>
+    ///     Indicates if sit/stand reminders are enabled.
+    /// </summary>
+    public bool RemindersEnabled { get ; set ; } = AppConfiguration.Reminders.RemindersEnabled ;
+
+    /// <summary>
+    ///     The interval in minutes for sitting.
+    /// </summary>
+    public uint SittingIntervalMinutes { get ; set ; } = AppConfiguration.Reminders.SittingIntervalMinutes ;
+
+    /// <summary>
+    ///     The interval in minutes for standing.
+    /// </summary>
+    public uint StandingIntervalMinutes { get ; set ; } = AppConfiguration.Reminders.StandingIntervalMinutes ;
+
+    /// <summary>
+    ///     The interval in minutes for snooze.
+    /// </summary>
+    public uint SnoozeIntervalMinutes { get ; set ; } = AppConfiguration.Reminders.SnoozeIntervalMinutes ;
 }
+
