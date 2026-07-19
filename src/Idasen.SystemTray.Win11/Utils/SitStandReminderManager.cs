@@ -229,8 +229,8 @@ public class SitStandReminderManager : ISitStandReminderManager
                .AddText ( text )
                .AddButton ( new ToastButton ( actionText ,
                                               actionArg ) )
-               .AddButton ( new ToastButton ( "Snooze" ,
-                                              "action=snooze" ) )
+               .AddButton ( new ToastButton ( "Dismiss" ,
+                                              "action=dismiss" ) )
                .SetToastDuration ( ToastDuration.Long )
                .Show ( toast =>
                        {
@@ -345,12 +345,11 @@ public class SitStandReminderManager : ISitStandReminderManager
                                }
                            } ) ;
             }
-            else if ( action == "snooze" )
+            else if ( action == "dismiss" )
             {
-                _isSnoozed = true ;
-                ResetTimerForCurrentState ( ) ;
-                _logger.Information ( "Reminder snoozed for {Minutes} minutes" ,
-                                      settings.SnoozeIntervalMinutes ) ;
+                _isSnoozed        = false ;
+                _secondsRemaining = 0u ;
+                _logger.Information ( "Reminder dismissed by action; stopping snooze/scheduling." ) ;
             }
         }
     }
