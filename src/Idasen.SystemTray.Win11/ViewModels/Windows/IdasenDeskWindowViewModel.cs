@@ -214,14 +214,6 @@ public partial class IdasenDeskWindowViewModel : ObservableObject , IAsyncDispos
 
         _menuItems.Add ( homeViewItem ) ;
         _menuItems.Add ( settingsViewItem ) ;
-        _menuItems.Add ( _standViewItem ) ;
-        _menuItems.Add ( _sitViewItem ) ;
-        _menuItems.Add ( _custom1ViewItem ) ;
-        _menuItems.Add ( _custom2ViewItem ) ;
-        _menuItems.Add ( _stopViewItem ) ;
-        _menuItems.Add ( _connectViewItem ) ;
-        _menuItems.Add ( _disconnectViewItem ) ;
-        _menuItems.Add ( _closeWindowViewItem ) ;
 
         _footerMenuItems.Add ( _exitViewItem ) ;
 
