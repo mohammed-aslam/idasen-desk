@@ -214,16 +214,13 @@ public partial class IdasenDeskWindowViewModel : ObservableObject , IAsyncDispos
 
         _menuItems.Add ( homeViewItem ) ;
         _menuItems.Add ( settingsViewItem ) ;
-        _menuItems.Add ( new CustomSeparatorMenuItem ( ) ) ;
         _menuItems.Add ( _standViewItem ) ;
         _menuItems.Add ( _sitViewItem ) ;
         _menuItems.Add ( _custom1ViewItem ) ;
         _menuItems.Add ( _custom2ViewItem ) ;
         _menuItems.Add ( _stopViewItem ) ;
-        _menuItems.Add ( new CustomSeparatorMenuItem ( ) ) ;
         _menuItems.Add ( _connectViewItem ) ;
         _menuItems.Add ( _disconnectViewItem ) ;
-        _menuItems.Add ( new CustomSeparatorMenuItem ( ) ) ;
         _menuItems.Add ( _closeWindowViewItem ) ;
 
         _footerMenuItems.Add ( _exitViewItem ) ;
@@ -308,12 +305,13 @@ public partial class IdasenDeskWindowViewModel : ObservableObject , IAsyncDispos
             _menuItemCustom1 ,
             _menuItemCustom2 ,
             _menuItemStop ,
-            new CustomSeparatorMenuItem ( ) ,
-            _menuItemConnect ,
-            _menuItemDisconnect ,
-            new CustomSeparatorMenuItem ( ) ,
-            _menuItemShow ,
-            _menuItemHide ,
+            // remove the following lines to hide connect/disconnect and show/hide settings in the tray menu 
+            // new CustomSeparatorMenuItem ( ) ,
+            // _menuItemConnect ,
+            // _menuItemDisconnect ,
+            // new CustomSeparatorMenuItem ( ) ,
+            // _menuItemShow ,
+            // _menuItemHide ,
             new CustomSeparatorMenuItem ( ) ,
             menuItemExit
         ] ;
