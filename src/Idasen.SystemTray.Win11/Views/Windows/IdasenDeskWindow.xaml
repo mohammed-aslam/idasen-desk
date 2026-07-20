@@ -25,7 +25,7 @@
     mc:Ignorable="d"
     ShowInTaskbar="True"
     WindowStyle="None"
-    ResizeMode="CanResizeWithGrip">
+    ResizeMode="NoResize">
 
     <ui:FluentWindow.InputBindings>
         <KeyBinding
@@ -67,7 +67,7 @@
                 IsPaneToggleVisible="False"
                 IsTopSeparatorVisible="False"
                 MenuItemsSource="{Binding ViewModel.MenuItems, Mode=OneWay}"
-                OpenPaneLength="110"
+                OpenPaneLength="170"
                 PaneDisplayMode="Left"
                 TitleBar="{Binding ElementName=TitleBar, Mode=OneWay}"
                 ScrollViewer.VerticalScrollBarVisibility="Auto"
