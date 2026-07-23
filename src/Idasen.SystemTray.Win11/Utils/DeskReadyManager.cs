@@ -92,7 +92,7 @@ public sealed class DeskReadyManager : IDeskReadyManager
                                    desk ,
                                    NotifyIcon ) ;
 
-        var message = $"Connected successfully to '{desk.DeviceName}'." ;
+        var message = $"Connected to '{desk.DeviceName}'" ;
 
         _notificationManager.ShowStatusUpdate ( 0 ,
                                                 "Connected" ,

@@ -101,6 +101,7 @@ public partial class App
                                                                            services.AddSingleton < IDonateService ,
                                                                                DonateService > ( ) ;
                                                                            services.AddSingleton < HomePage > ( ) ;
+                                                                                                    services.AddSingleton < AboutPage > ( ) ;
                                                                            services
                                                                               .AddSingleton < DashboardViewModel > ( ) ;
                                                                            services.AddSingleton < StatusPage > ( ) ;

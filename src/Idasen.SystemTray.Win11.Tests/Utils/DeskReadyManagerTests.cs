@@ -49,7 +49,7 @@ public class DeskReadyManagerTests
         context.NotificationManager.Received ( 1 )
                .ShowStatusUpdate ( 0 ,
                                    "Connected" ,
-                                   "Connected successfully to 'Desk A'." ,
+                                   "Connected successfully to 'Desk A'" ,
                                    InfoBarSeverity.Success ) ;
 
         await Task.CompletedTask ;

@@ -47,7 +47,7 @@ public class ApplicationHostService ( IServiceProvider serviceProvider ) : IHost
 
             navigationWindow.ShowWindow ( ) ;
 
-            navigationWindow.Navigate ( typeof ( SettingsPage ) ) ;
+            navigationWindow.Navigate ( typeof ( HomePage ) ) ;
 
             CurrentWindow.Visibility = Visibility.Hidden ;
         }

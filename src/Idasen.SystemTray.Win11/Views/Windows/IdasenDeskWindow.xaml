@@ -99,15 +99,6 @@
             </tray:NotifyIcon>
         </Grid>
 
-        <!-- Global InfoBar in bottom row -->
-        <ui:InfoBar
-            Grid.Row="1"
-            Height="56"
-            Margin="5,12,5,12"
-            Title="{Binding ViewModel.StatusBarTitle}"
-            Message="{Binding ViewModel.StatusBarMessage}"
-            Severity="{Binding ViewModel.StatusBarSeverity}"
-            IsOpen="True"
-            IsClosable="False" />
+        <!-- Bottom status bar removed per user request -->
     </Grid>
 </ui:FluentWindow>

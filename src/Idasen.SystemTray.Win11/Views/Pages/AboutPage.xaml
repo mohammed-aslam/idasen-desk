@@ -1,0 +1,61 @@
+<Page
+    x:Class="Idasen.SystemTray.Win11.Views.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Idasen.SystemTray.Win11.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="AboutPage"
+    d:DataContext="{d:DesignInstance local:AboutPage,IsDesignTimeCreatable=False}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <ui:CardExpander
+            DockPanel.Dock="Top"
+            CornerRadius="8,8,8,8"
+            Header="About"
+            IsExpanded="True">
+            <StackPanel VerticalAlignment="Top">
+                <TextBlock
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    FontWeight="Bold"
+                    Text="Idasen Desk" />
+                <TextBlock
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    FontWeight="Medium"
+                    Text="Overview" />
+                <TextBlock
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    Text="This application controls Ikea's Idasen Desk using Windows and BluetoothLE. The original mobile apps are not available for Windows, so this provides a desktop alternative." />
+                <TextBlock
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    FontStyle="Italic">
+                    If you enjoy what I’m building and want to keep the momentum going, feel free to buy me a coffee or support via PayPal.
+                </TextBlock>
+                <Image
+                    Margin="0,24,0,0"
+                    Source="pack://application:,,,/Resources/Donate-Button.png"
+                    SnapsToDevicePixels="True"
+                    UseLayoutRounding="True"
+                    Stretch="None"
+                    Cursor="Hand"
+                    MouseLeftButtonUp="DonateImage_OnClick"
+                    ToolTip="Support via PayPal (https://www.paypal.com/donate/?hosted_button_id=KAWJDNVJTD7SJ)" />
+            </StackPanel>
+        </ui:CardExpander>
+    </StackPanel>
+</Page>

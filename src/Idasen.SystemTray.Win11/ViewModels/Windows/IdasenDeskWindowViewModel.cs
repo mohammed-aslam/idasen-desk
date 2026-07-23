@@ -33,6 +33,7 @@ public partial class IdasenDeskWindowViewModel : ObservableObject , IAsyncDispos
         CompositeFormat.Parse ( DoYouWantToMoveTheDeskIntoPosition ) ;
 
     private readonly NavigationViewItem ? _closeWindowViewItem ;
+    private readonly NavigationViewItem ? _aboutViewItem ;
     private readonly NavigationViewItem ? _connectViewItem ;
     private readonly NavigationViewItem ? _custom1ViewItem ;
     private readonly NavigationViewItem ? _custom2ViewItem ;
@@ -102,7 +103,7 @@ public partial class IdasenDeskWindowViewModel : ObservableObject , IAsyncDispos
 
         var homeViewItem = new NavigationViewItem
         {
-            Content        = "Home" ,
+            Content        = "Dashboard" ,
             Icon           = new SymbolIcon { Symbol = SymbolRegular.Home20 } ,
             TargetPageType = typeof ( HomePage )
         } ;
@@ -194,6 +195,14 @@ public partial class IdasenDeskWindowViewModel : ObservableObject , IAsyncDispos
             ToolTip        = "Double-Click to see settings."
         } ;
 
+        _aboutViewItem = new NavigationViewItem
+        {
+            Content        = "About" ,
+            Icon           = new SymbolIcon { Symbol = SymbolRegular.Info24 } ,
+            TargetPageType = typeof ( AboutPage ) ,
+            ToolTip        = "Double-Click to see about information."
+        } ;
+
         _stopViewItem = new NavigationViewItem
         {
             Content        = "Stop" ,
@@ -215,7 +224,7 @@ public partial class IdasenDeskWindowViewModel : ObservableObject , IAsyncDispos
         _menuItems.Add ( homeViewItem ) ;
         _menuItems.Add ( settingsViewItem ) ;
 
-        _footerMenuItems.Add ( _exitViewItem ) ;
+        _footerMenuItems.Add ( _aboutViewItem ) ;
 
         // Cache commands
         // ReSharper disable AsyncVoidLambda

@@ -25,7 +25,7 @@
         <ScrollViewer x:Name="MainScrollViewer" VerticalScrollBarVisibility="Auto">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <!-- Advanced -->
-                <ui:CardExpander CornerRadius="0,0,8,8" Header="Advanced">
+                <ui:CardExpander CornerRadius="8,8,8,8" Header="Advanced">
                     <StackPanel>
                         <TextBlock Margin="0,12,0,0" Text="Settings" />
                         <Grid Margin="0,12,0,0">
@@ -153,7 +153,7 @@
                 </ui:CardExpander>
 
                 <!-- Appearance -->
-                <ui:CardExpander CornerRadius="0,0,8,8" Header="Appearance">
+                <ui:CardExpander CornerRadius="8,8,8,8" Header="Appearance">
                     <StackPanel>
                         <TextBlock Margin="0,12,0,0" Text="Theme" />
                         <RadioButton Margin="0,12,0,0" Command="{Binding ViewModel.ChangeThemeCommand, Mode=OneWay}"
@@ -170,7 +170,7 @@
                 </ui:CardExpander>
 
                 <!-- General -->
-                <ui:CardExpander CornerRadius="0,0,8,8" Header="General" IsExpanded="True">
+                <ui:CardExpander CornerRadius="8,8,8,8" Header="General" IsExpanded="True">
                     <StackPanel>
                         <TextBlock Margin="0,12,0,0" Text="Positions" />
                         <Grid Margin="0,12,0,0">
@@ -202,7 +202,7 @@
                                 IsEditable="True"
                                 PositionValue="{Binding ViewModel.Standing, Mode=TwoWay}"
                                 IsVisibleInContextMenu="{Binding ViewModel.StandingIsVisibleInContextMenu, Mode=TwoWay}"
-                                Minimum="65"
+                                Minimum="62"
                                 Maximum="127" />
                             <!-- Row 1 - Blank -->
                             <!-- Row 2 -->
@@ -216,7 +216,7 @@
                                 IsEditable="True"
                                 PositionValue="{Binding ViewModel.Seating, Mode=TwoWay}"
                                 IsVisibleInContextMenu="{Binding ViewModel.SeatingIsVisibleInContextMenu, Mode=TwoWay}"
-                                Minimum="65"
+                                Minimum="62"
                                 Maximum="127" />
                             <!-- Row 3 - Blank -->
                             <!-- Row 4 -->
@@ -230,7 +230,7 @@
                                 IsEditable="True"
                                 PositionValue="{Binding ViewModel.Custom1, Mode=TwoWay}"
                                 IsVisibleInContextMenu="{Binding ViewModel.Custom1IsVisibleInContextMenu, Mode=TwoWay}"
-                                Minimum="65"
+                                Minimum="62"
                                 Maximum="127" />
                             <!-- Row 5 - Blank -->
                             <!-- Row 6 -->
@@ -244,7 +244,7 @@
                                 IsEditable="True"
                                 PositionValue="{Binding ViewModel.Custom2, Mode=TwoWay}"
                                 IsVisibleInContextMenu="{Binding ViewModel.Custom2IsVisibleInContextMenu, Mode=TwoWay}"
-                                Minimum="65"
+                                Minimum="62"
                                 Maximum="127" />
                         </Grid>
                         <TextBlock Margin="0,12,0,0" Text="Tray Menu" />
@@ -276,7 +276,7 @@
                 </ui:CardExpander>
 
                 <!-- Sit/Stand Reminders -->
-                <ui:CardExpander CornerRadius="0,0,8,8" Header="Sit/Stand Reminders" IsExpanded="True">
+                <ui:CardExpander CornerRadius="8,8,8,8" Header="Sit/Stand Reminders">
                     <StackPanel>
                         <TextBlock Margin="0,12,0,0" Text="Reminder Settings" />
                         <CheckBox Margin="0,12,0,0"
@@ -332,7 +332,7 @@
                 </ui:CardExpander>
 
                 <!-- Hot Keys -->
-                <ui:CardExpander CornerRadius="0,0,8,8" Header="Hot Keys">
+                <ui:CardExpander CornerRadius="8,8,8,8" Header="Hot Keys">
                     <StackPanel>
                         <TextBlock Margin="0,12,0,0" Text="Global Hotkeys" />
                         <CheckBox Margin="0,12,0,0"
